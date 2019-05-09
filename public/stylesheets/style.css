@@ -1,0 +1,44 @@
+body {
+	padding: 50px;
+	font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+	color: #00B7FF;
+	padding: 5px;
+	margin: 3px;
+	background-color: rgb(241, 234, 234);
+	cursor: pointer;
+	text-decoration: underline;
+}
+
+fieldset {
+	width: 400px;
+	margin-bottom: 5px;
+}
+
+fieldset button {
+	width: 100%;
+}
+
+input[type = text],
+input[type = tel],
+input[type = email],
+input[type = url],
+input[type = password] {
+	float: right;
+}
+
+.fieldLine {
+	margin-bottom: 10px;
+}
+
+.nav {
+	display: inline-block;
+	padding: 5px;
+	width: 300px;
+}
+
+.card {
+	display: flex;
+}
