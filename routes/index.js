@@ -3,19 +3,15 @@ var router = express.Router();
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-	res.render('index', { title: 'v.0.74' });
+	res.render('index', { title: 'Bus v.0.75-2' });
 });
 
 router.get('/login', function(req, res, next) {
-	res.render('login', { title: 'login' });
+	res.render('login', { title: 'Авторизация' });
 });
 
 router.get('/register', function(req, res, next) {
-	res.render('register', { title: 'register' });
-});
-
-router.get('/generate', function(req, res, next) {
-	res.render('generate', { title: 'generate' });
+	res.render('register', { title: 'Регистрация' });
 });
 
 module.exports = router;

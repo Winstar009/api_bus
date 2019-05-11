@@ -10,6 +10,11 @@ var passportJWT = require("passport-jwt");
 var indexRouter = require('./routes/index');
 var userRouter = require('./routes/user');
 var authRouter = require('./routes/auth');
+var routeRouter = require('./routes/route');
+var scheduleRouter = require('./routes/schedule');
+var stopRouter = require('./routes/stop');
+var companyRouter = require('./routes/company');
+
 var config_auth = require('./bin/config_auth');
 
 var app = express();
@@ -35,7 +40,11 @@ app.use(config_auth.passport.initialize());
 
 app.use('/', indexRouter);
 app.use('/api/auth', authRouter);
-app.use('/api/user', passport.authenticate('jwt', { session: false }), userRouter);
+app.use('/api/user', /*passport.authenticate('jwt', { session: false }),*/ userRouter);
+app.use('/route', /*passport.authenticate('jwt', { session: false }),*/ routeRouter);
+app.use('/schedule', /*passport.authenticate('jwt', { session: false }),*/ scheduleRouter);
+app.use('/stop', /*passport.authenticate('jwt', { session: false }),*/ stopRouter);
+app.use('/company', /*passport.authenticate('jwt', { session: false }),*/ companyRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

@@ -1,15 +1,13 @@
 body {
 	padding: 50px;
 	font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+
+	background-color: #F5F5F5;
+	color: #131313;
 }
 
 a {
-	color: #00B7FF;
-	padding: 5px;
-	margin: 3px;
-	background-color: rgb(241, 234, 234);
-	cursor: pointer;
-	text-decoration: underline;
+	color: #4a57b7;
 }
 
 fieldset {
@@ -39,6 +37,43 @@ input[type = password] {
 	width: 300px;
 }
 
+.nav a {
+	padding: 5px;
+	margin: 3px;
+	background-color: rgb(241, 234, 234);
+	cursor: pointer;
+	text-decoration: underline;
+}
+
 .card {
 	display: flex;
+}
+
+.routes .route {
+	margin: 5px;
+	padding: 5px;
+	background-color: #EFEFC4;
+	display: inline-table;
+}
+
+.stopTable tbody {
+	text-align: left;
+}
+
+.schedule, .stop {
+	float: left;
+	margin: 25px;
+	padding: 25px;
+	background-color: beige;
+}
+
+.companyDetail, .routeDetail, .routes {
+	display: table;
+	margin: 25px;
+	padding: 25px;
+	background-color: beige;
+}
+
+h1 {
+	margin-top: 0;
 }

@@ -1,4 +1,4 @@
-var user = require('../models/userModel');
+var schedule = require('../models/scheduleModel');
 var auth = require('../bin/config_auth');
 
 function send(res, error, data) {
@@ -14,9 +14,8 @@ function send(res, error, data) {
 	res.type('json').json(str);
 }
 
-exports.getUserInfo = function(req, res, next) {
-	var id = auth.decodingToken(req).id;
-	user.getPermission(id).then(result => {
+exports.getScheduleRoute = function(req, res, next) {
+	schedule.getScheduleRoute(req.params.routeName).then(result => {
 		send(res, null, result.recordset);
 	});
 }

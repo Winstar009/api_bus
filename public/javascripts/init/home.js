@@ -26,16 +26,6 @@ function initHome() {
 		bNav.appendChild(bLogout);
 		bNav.appendChild(bGenerate);
 		bNav.appendChild(bRefresh);
-
-
-		let data = localStorage.getItem('data');
-		data = JSON.parse(data);
-
-		if(data.cards.length > 0) {
-			data.cards.forEach(elem => {
-				print(elem);
-			});
-		}
 	} else {
 		let bLogin = document.createElement('a');
 		bLogin.innerText = 'Войти';
@@ -48,6 +38,8 @@ function initHome() {
 		bNav.appendChild(bLogin);
 		bNav.appendChild(bRegister);
 	}
+
+	getRoutes();
 }
 
 initHome();

@@ -1,4 +1,4 @@
-var user = require('../models/userModel');
+var stop = require('../models/stopModel');
 var auth = require('../bin/config_auth');
 
 function send(res, error, data) {
@@ -14,9 +14,8 @@ function send(res, error, data) {
 	res.type('json').json(str);
 }
 
-exports.getUserInfo = function(req, res, next) {
-	var id = auth.decodingToken(req).id;
-	user.getPermission(id).then(result => {
+exports.getStopRoute = function(req, res, next) {
+	stop.getStopRoute(req.params.routeName).then(result => {
 		send(res, null, result.recordset);
 	});
 }
