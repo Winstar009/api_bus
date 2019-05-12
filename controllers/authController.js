@@ -45,7 +45,6 @@ exports.findUserToken = function(jwt_payload) {
 }
 
 exports.userAuth = function(req, res, next) {
-	var error;
 	if(req.body.login != null && req.body.password != null){
 		auth.findUser(req.body.login, req.body.password).then(resultFindUser => {
 			resultFindUser = resultFindUser.recordset;
@@ -67,17 +66,17 @@ exports.userAuth = function(req, res, next) {
 
 					auth.updateAuthDate(resultFindUser[0].id, Math.floor(Date.now() / 1000)).then(resultUpdateAuthDate => {
 						if(resultUpdateAuthDate){
-							send(res, error, data);
+							send(res, null, data);
 						}
 					});
 				});
 			}
 			else{
-				send(res, "Неверный логин или пароль");
+				send(res, 'Неверный логин или пароль');
 			}
 		});
 	}
 	else{
-		send(res, "Не все поля заполнены");
+		send(res, 'Не все поля заполнены');
 	}
 };

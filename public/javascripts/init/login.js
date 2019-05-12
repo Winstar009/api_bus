@@ -1,28 +1,9 @@
 var body = document.querySelector('body');
 
 function initLogin() {
-	nav();
 	form();
 }
-
 initLogin();
-
-function nav() {
-	let bNav = document.createElement('div');
-	bNav.className = 'nav';
-
-	let bBack = document.createElement('a');
-	bBack.innerText = 'Назад';
-	bBack.href = '/';
-
-	let bRegister = document.createElement('a');
-	bRegister.innerText = 'Регистрация';
-	bRegister.href = '/register';
-
-	bNav.appendChild(bBack);
-	bNav.appendChild(bRegister);
-	body.appendChild(bNav);
-}
 
 function form() {
 	let form = document.createElement('form');

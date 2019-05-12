@@ -14,8 +14,8 @@ function send(res, error, data) {
 	res.type('json').json(str);
 }
 
-exports.getRoutes = function(req, res, next) {
-	route.getRoutes().then(result => {
+exports.getRouteList = function(req, res, next) {
+	route.getRouteList().then(result => {
 		send(res, null, result.recordset);
 	});
 }

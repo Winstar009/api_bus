@@ -14,6 +14,9 @@ var routeRouter = require('./routes/route');
 var scheduleRouter = require('./routes/schedule');
 var stopRouter = require('./routes/stop');
 var companyRouter = require('./routes/company');
+var busRouter = require('./routes/bus');
+var personnelRouter = require('./routes/personnel');
+var flightRouter = require('./routes/flight');
 
 var config_auth = require('./bin/config_auth');
 
@@ -45,6 +48,9 @@ app.use('/route', /*passport.authenticate('jwt', { session: false }),*/ routeRou
 app.use('/schedule', /*passport.authenticate('jwt', { session: false }),*/ scheduleRouter);
 app.use('/stop', /*passport.authenticate('jwt', { session: false }),*/ stopRouter);
 app.use('/company', /*passport.authenticate('jwt', { session: false }),*/ companyRouter);
+app.use('/bus', /*passport.authenticate('jwt', { session: false }),*/ busRouter);
+app.use('/personnel', /*passport.authenticate('jwt', { session: false }),*/ personnelRouter);
+app.use('/flight', /*passport.authenticate('jwt', { session: false }),*/ flightRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

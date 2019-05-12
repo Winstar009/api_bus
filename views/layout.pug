@@ -2,17 +2,22 @@ doctype html
 html
 	head
 		title= title
+
+		script(src="/javascripts/init/head.js")
+
 		link(rel='stylesheet', href='/stylesheets/style.css')
 		script(src="https://unpkg.com/axios/dist/axios.min.js")
 
-		script(src="../javascripts/function/convertTime.js")
+		script(src="/javascripts/function/convertTime.js")
 
-		script(src="../javascripts/function/getUserInfo.js")
-		script(src="../javascripts/function/getSchedule.js")
-		script(src="../javascripts/function/getRoute.js")
-		script(src="../javascripts/function/getRoutes.js")
-		script(src="../javascripts/function/getStop.js")
-		script(src="../javascripts/function/getCompany.js")
+		script(src="/javascripts/function/getUserInfo.js")
+		script(src="/javascripts/function/getSchedule.js")
+		script(src="/javascripts/function/route.js")
+		script(src="/javascripts/function/company.js")
+		script(src="/javascripts/function/bus.js")
+		script(src="/javascripts/function/personnel.js")
+		script(src="/javascripts/function/stop.js")
+		script(src="/javascripts/function/flight.js")
 
 	body
 		block content

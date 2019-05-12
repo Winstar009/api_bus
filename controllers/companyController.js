@@ -14,6 +14,12 @@ function send(res, error, data) {
 	res.type('json').json(str);
 }
 
+exports.getCompanyList = function(req, res, next) {
+	company.getCompanyList().then(result => {
+		send(res, null, result.recordset);
+	});
+}
+
 exports.getCompanyById = function(req, res, next) {
 	company.getCompanyById(req.params.id).then(result => {
 		send(res, null, result.recordset);

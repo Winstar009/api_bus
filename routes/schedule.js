@@ -7,6 +7,6 @@ var upload = multer();
 
 var scheduleController = require('../controllers/scheduleController');
 
-router.post('/getSchedule/:routeName', upload.none(), scheduleController.getScheduleRoute);
+router.post('/getSchedule/:routeId', upload.none(), scheduleController.getScheduleRoute);
 
 module.exports = router;

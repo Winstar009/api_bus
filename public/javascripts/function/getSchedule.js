@@ -17,15 +17,15 @@ function getSchedule(route) {
 function printSchedule(data) {
 	let body = document.querySelector('body');
 	let block = document.createElement('div');
-	block.className = 'schedule';
+	block.className = 'list';
 
 	let blockName = document.createElement('h1');
 	blockName.className = 'title';
-	blockName.innerText = 'Расписание:';
+	blockName.innerText = 'Расписание';
 	block.appendChild(blockName);
 
 	let table = document.createElement('table');
-	table.className = 'scheduleTable';
+	table.className = 'table';
 
 	let headTable = document.createElement('thead');
 	let headLine = document.createElement('tr');

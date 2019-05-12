@@ -15,7 +15,7 @@ function send(res, error, data) {
 }
 
 exports.getScheduleRoute = function(req, res, next) {
-	schedule.getScheduleRoute(req.params.routeName).then(result => {
+	schedule.getScheduleRoute(req.params.routeId).then(result => {
 		send(res, null, result.recordset);
 	});
 }

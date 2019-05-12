@@ -1,8 +1,8 @@
 var db = require('../bin/config_db');
 
-exports.getRoutes = function() {
+exports.getRouteList = function() {
 	return new Promise(function(resolve) {
-		var sql = `SELECT * FROM [getRoute_]`;
+		var sql = `SELECT * FROM [getRoute_server]`;
 		db.query(sql).then(function(result){
 			resolve(result);
 		});
@@ -11,7 +11,7 @@ exports.getRoutes = function() {
 
 exports.getRouteById = function(id) {
 	return new Promise(function(resolve) {
-		var sql = `SELECT * FROM [getRoute_] WHERE [routeId] = '${id}'`;
+		var sql = `SELECT * FROM [getRoute_server] WHERE [routeId] = '${id}'`;
 		db.query(sql).then(function(result){
 			resolve(result);
 		});

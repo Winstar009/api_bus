@@ -15,7 +15,13 @@ function send(res, error, data) {
 }
 
 exports.getStopRoute = function(req, res, next) {
-	stop.getStopRoute(req.params.routeName).then(result => {
+	stop.getStopRoute(req.params.routeId).then(result => {
+		send(res, null, result.recordset);
+	});
+}
+
+exports.getStopList = function(req, res, next) {
+	stop.getStopList().then(result => {
 		send(res, null, result.recordset);
 	});
 }
