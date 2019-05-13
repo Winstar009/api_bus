@@ -1,5 +1,3 @@
-document.addEventListener("DOMContentLoaded", initHead);
-
 function initHead() {
 	let body = document.querySelector('body');
 	let head = document.createElement('div');
@@ -91,20 +89,32 @@ function initHead() {
 			localStorage.clear();
 		}
 		menuNav.appendChild(l_logout);
+
+		let info = JSON.parse(localStorage.getItem('info'));
+		let cf = info.countFlight;
+		if(cf > 0){
+			let l_flight = document.createElement('a');
+			l_flight.innerText = 'Мои рейсы';
+			l_flight.href = '/flight/' + info.personnelId;
+			menuNav.appendChild(l_flight);
+		}
+		
+		let l_lk = document.createElement('a');
+		l_lk.innerText = info.fio;
+		l_lk.href = '/personnel/' + info.personnelId;
+		menuNav.appendChild(l_lk);
+
 	} else {
 		let l_login = document.createElement('a');
 		l_login.innerText = 'Войти';
 		l_login.href = '/login';
 
-		let l_register = document.createElement('a');
-		l_register.innerText = 'Регистрация';
-		l_register.href = '/register';
-
 		menuNav.appendChild(l_login);
-		menuNav.appendChild(l_register);
 	}
 
 	head.appendChild(menuNav);
 
 	body.appendChild(head);
 }
+
+initHead();

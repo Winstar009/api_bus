@@ -1,7 +1,10 @@
 function getStopRoute(route) {
 	axios({
 		method: 'POST',
-		url: '/stop/getStop/' + route
+		url: '/stop/getStop/' + route,
+		headers: {
+			'Authorization': localStorage.getItem('token')
+		}
 	})
 	.then(function (response) {
 		console.log(response);
@@ -65,7 +68,10 @@ function printStopRoute(data) {
 function getStopAll() {
 	axios({
 		method: 'POST',
-		url: '/stop/getStopList/'
+		url: '/stop/getStopList/',
+		headers: {
+			'Authorization': localStorage.getItem('token')
+		}
 	})
 	.then(function (response) {
 		console.log(response);
@@ -75,6 +81,22 @@ function getStopAll() {
 	})
 	.catch(function (error) {
 		console.log(error);
+
+		let body = document.querySelector('body');
+		let block = document.createElement('div');
+		block.className = 'list';
+
+		let blockName = document.createElement('h1');
+		blockName.className = 'title';
+		blockName.innerText = 'Остановки';
+		block.appendChild(blockName);
+
+		let exception = document.createElement('p');
+		exception.className = 'exception';
+		exception.innerText = 'Эта станица вам недоступна.'
+		
+		block.appendChild(exception);
+		body.appendChild(block);
 	});
 }
 

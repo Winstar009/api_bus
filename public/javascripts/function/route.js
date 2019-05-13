@@ -4,7 +4,10 @@ function getRoute() {
 
 	axios({
 		method: 'POST',
-		url: '/route/getRoute/' + routeId
+		url: '/route/getRoute/' + routeId,
+		headers: {
+			'Authorization': localStorage.getItem('token')
+		}
 	})
 	.then(function (response) {
 		console.log(response);
@@ -57,7 +60,10 @@ function printRoute(data) {
 function getRouteList() {
 	axios({
 		method: 'POST',
-		url: '/route/getRouteList'
+		url: '/route/getRouteList',
+		headers: {
+			'Authorization': localStorage.getItem('token')
+		}
 	})
 	.then(function (response) {
 		console.log(response);
@@ -107,7 +113,10 @@ function printRouteList(data) {
 function getRouteAll() {
 	axios({
 		method: 'POST',
-		url: '/route/getRouteList'
+		url: '/route/getRouteList',
+		headers: {
+			'Authorization': localStorage.getItem('token')
+		}
 	})
 	.then(function (response) {
 		console.log(response);

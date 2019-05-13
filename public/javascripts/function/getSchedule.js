@@ -1,7 +1,10 @@
 function getSchedule(route) {
 	axios({
 		method: 'POST',
-		url: '/schedule/getSchedule/' + route
+		url: '/schedule/getSchedule/' + route,
+		headers: {
+			'Authorization': localStorage.getItem('token')
+		}
 	})
 	.then(function (response) {
 		console.log(response);

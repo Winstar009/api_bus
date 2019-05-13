@@ -10,7 +10,10 @@ function getUserInfo() {
 		console.log(response);
 		console.log(JSON.parse(response.data));
 
-		// location = '/';
+		let info = JSON.stringify(JSON.parse(response.data).data);
+		localStorage.setItem('info', info);
+
+		location = '/';
 	})
 	.catch(function (error) {
 		console.log(error);

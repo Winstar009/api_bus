@@ -11,15 +11,25 @@ router.post('/getBusList', upload.none(), busController.getBusList);
 router.post('/getBusListByCompany/:companyId', upload.none(), busController.getBusListByCompany);
 router.post('/getBusById/:busId', upload.none(), busController.getBusById);
 
-router.post('/getServiceBusById/:busId', upload.none(), busController.getServiceBusById);
+router.post('/getServiceBusById/:busId', 
+	passport.authenticate('jwt', { session: false }), upload.none(), 
+	busController.getServiceBusById);
 
-router.post('/getBusModelList', upload.none(), busController.getBusModelList);
+router.post('/getBusModelList', 
+	passport.authenticate('jwt', { session: false }), upload.none(), 
+	busController.getBusModelList);
 
-router.post('/getBusBrandList', upload.none(), busController.getBusBrandList);
+router.post('/getBusBrandList', 
+	passport.authenticate('jwt', { session: false }), upload.none(), 
+	busController.getBusBrandList);
 
-router.post('/getBusTypeList', upload.none(), busController.getBusTypeList);
+router.post('/getBusTypeList', 
+	passport.authenticate('jwt', { session: false }), upload.none(), 
+	busController.getBusTypeList);
 
-router.post('/getBusStatusList', upload.none(), busController.getBusStatusList);
+router.post('/getBusStatusList', 
+	passport.authenticate('jwt', { session: false }), upload.none(), 
+	busController.getBusStatusList);
 
 router.get('/company/:id', function(req, res, next) {
 	res.render('busCompany', { title: 'Автопарк компании' });

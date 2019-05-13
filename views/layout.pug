@@ -3,11 +3,13 @@ html
 	head
 		title= title
 
-		script(src="/javascripts/init/head.js")
-
 		link(rel='stylesheet', href='/stylesheets/style.css')
 		script(src="https://unpkg.com/axios/dist/axios.min.js")
 
+		
+
+	body
+		script(src="/javascripts/init/head.js")
 		script(src="/javascripts/function/convertTime.js")
 
 		script(src="/javascripts/function/getUserInfo.js")
@@ -19,5 +21,4 @@ html
 		script(src="/javascripts/function/stop.js")
 		script(src="/javascripts/function/flight.js")
 
-	body
 		block content

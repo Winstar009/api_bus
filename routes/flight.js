@@ -7,15 +7,19 @@ var upload = multer();
 
 var flightController = require('../controllers/flightController');
 
-router.post('/getFlightList', upload.none(), flightController.getFlightList);
-router.post('/getFlight/:id', upload.none(), flightController.getFlightById);
+router.post('/getFlightList', 
+	passport.authenticate('jwt', { session: false }), upload.none(), 
+	flightController.getFlightList);
+router.post('/getFlight/:id', 
+	passport.authenticate('jwt', { session: false }), upload.none(), 
+	flightController.getFlightById);
 
 router.get('/', function(req, res, next) {
 	res.render('flightAll', { title: 'Рейсы' });
 });
 
 router.get('/:id', function(req, res, next) {
-	res.render('flight', { title: 'Просмотр рейса' });
+	res.render('flightPersonnel', { title: 'Просмотр рейса' });
 });
 
 module.exports = router;

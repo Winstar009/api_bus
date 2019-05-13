@@ -10,6 +10,7 @@ function form() {
 	form.action = '/api/auth/login';
 	form.enctype = 'multipart/form-data';
 	form.method = 'post';
+	form.className = 'list'
 
 	let fieldBlock = document.createElement('fieldset');
 

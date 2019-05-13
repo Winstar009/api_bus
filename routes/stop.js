@@ -9,7 +9,9 @@ var stopController = require('../controllers/stopController');
 
 router.post('/getStop/:routeId', upload.none(), stopController.getStopRoute);
 
-router.post('/getStopList', upload.none(), stopController.getStopList);
+router.post('/getStopList', 
+	passport.authenticate('jwt', { session: false }), upload.none(), 
+	stopController.getStopList);
 
 router.get('/', upload.none(), function(req, res, next) {
 	res.render('stopAll', { title: 'Остановки' });

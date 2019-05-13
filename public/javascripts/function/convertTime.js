@@ -22,3 +22,16 @@ function convertDate(date) {
 
 	return date.toLocaleString("ru", options);
 }
+
+function convertDateSQL(date) {
+	date = new Date(date);
+
+	let y = date.getFullYear().toString();
+	let m = (date.getMonth() + 1).toString();
+	let d = date.getDate().toString();
+
+	if(m.length == 1) m = '0' + m;
+	if(d.length == 1) d = '0' + d;
+
+	return y + '-' + m + '-' + d;
+}

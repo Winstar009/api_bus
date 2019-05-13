@@ -4,7 +4,10 @@ function getBusListCompany() {
 
 	axios({
 		method: 'POST',
-		url: '/bus/getBusListByCompany/' + companyId
+		url: '/bus/getBusListByCompany/' + companyId,
+		headers: {
+			'Authorization': localStorage.getItem('token')
+		}
 	})
 	.then(function (response) {
 		console.log(response);
@@ -148,7 +151,10 @@ function getBus() {
 
 	axios({
 		method: 'POST',
-		url: '/bus/getBusById/' + busId
+		url: '/bus/getBusById/' + busId,
+		headers: {
+			'Authorization': localStorage.getItem('token')
+		}
 	})
 	.then(function (response) {
 		console.log(response);
@@ -237,7 +243,10 @@ function printBus(data, busId) {
 function getServiceBus(busId) {
 	axios({
 		method: 'POST',
-		url: '/bus/getServiceBusById/' + busId
+		url: '/bus/getServiceBusById/' + busId,
+		headers: {
+			'Authorization': localStorage.getItem('token')
+		}
 	})
 	.then(function (response) {
 		console.log(response);
@@ -247,6 +256,22 @@ function getServiceBus(busId) {
 	})
 	.catch(function (error) {
 		console.log(error);
+
+		let body = document.querySelector('body');
+		let block = document.createElement('div');
+		block.className = 'list';
+
+		let blockName = document.createElement('h1');
+		blockName.className = 'title';
+		blockName.innerText = 'Сервисное обслуживание';
+		block.appendChild(blockName);
+
+		let exception = document.createElement('p');
+		exception.className = 'exception';
+		exception.innerText = 'Эта станица вам недоступна.'
+		
+		block.appendChild(exception);
+		body.appendChild(block);
 	});
 }
 
@@ -310,7 +335,10 @@ function printBusService(data) {
 function getBusAll() {
 	axios({
 		method: 'POST',
-		url: '/bus/getBusList/'
+		url: '/bus/getBusList/',
+		headers: {
+			'Authorization': localStorage.getItem('token')
+		}
 	})
 	.then(function (response) {
 		console.log(response);
@@ -461,7 +489,10 @@ function printBusAll(data) {
 function getBusModelAll() {
 	axios({
 		method: 'POST',
-		url: '/bus/getBusModelList/'
+		url: '/bus/getBusModelList/',
+		headers: {
+			'Authorization': localStorage.getItem('token')
+		}
 	})
 	.then(function (response) {
 		console.log(response);
@@ -471,6 +502,22 @@ function getBusModelAll() {
 	})
 	.catch(function (error) {
 		console.log(error);
+
+		let body = document.querySelector('body');
+		let block = document.createElement('div');
+		block.className = 'list';
+
+		let blockName = document.createElement('h1');
+		blockName.className = 'title';
+		blockName.innerText = 'Модели автотранспорта';
+		block.appendChild(blockName);
+
+		let exception = document.createElement('p');
+		exception.className = 'exception';
+		exception.innerText = 'Эта станица вам недоступна.'
+		
+		block.appendChild(exception);
+		body.appendChild(block);
 	});
 }
 
@@ -566,7 +613,10 @@ function printBusModelAll(data) {
 function getBusBrandAll() {
 	axios({
 		method: 'POST',
-		url: '/bus/getBusBrandList/'
+		url: '/bus/getBusBrandList/',
+		headers: {
+			'Authorization': localStorage.getItem('token')
+		}
 	})
 	.then(function (response) {
 		console.log(response);
@@ -576,6 +626,22 @@ function getBusBrandAll() {
 	})
 	.catch(function (error) {
 		console.log(error);
+
+		let body = document.querySelector('body');
+		let block = document.createElement('div');
+		block.className = 'list';
+
+		let blockName = document.createElement('h1');
+		blockName.className = 'title';
+		blockName.innerText = 'Бренды автотранспорта';
+		block.appendChild(blockName);
+
+		let exception = document.createElement('p');
+		exception.className = 'exception';
+		exception.innerText = 'Эта станица вам недоступна.'
+		
+		block.appendChild(exception);
+		body.appendChild(block);
 	});
 }
 
@@ -623,7 +689,10 @@ function printBusBrandAll(data) {
 function getBusTypeAll() {
 	axios({
 		method: 'POST',
-		url: '/bus/getBusTypeList/'
+		url: '/bus/getBusTypeList/',
+		headers: {
+			'Authorization': localStorage.getItem('token')
+		}
 	})
 	.then(function (response) {
 		console.log(response);
@@ -633,6 +702,22 @@ function getBusTypeAll() {
 	})
 	.catch(function (error) {
 		console.log(error);
+
+		let body = document.querySelector('body');
+		let block = document.createElement('div');
+		block.className = 'list';
+
+		let blockName = document.createElement('h1');
+		blockName.className = 'title';
+		blockName.innerText = 'Типы автотранспорта';
+		block.appendChild(blockName);
+
+		let exception = document.createElement('p');
+		exception.className = 'exception';
+		exception.innerText = 'Эта станица вам недоступна.'
+		
+		block.appendChild(exception);
+		body.appendChild(block);
 	});
 }
 
@@ -680,7 +765,10 @@ function printBusTypeAll(data) {
 function getBusStatusAll() {
 	axios({
 		method: 'POST',
-		url: '/bus/getBusStatusList/'
+		url: '/bus/getBusStatusList/',
+		headers: {
+			'Authorization': localStorage.getItem('token')
+		}
 	})
 	.then(function (response) {
 		console.log(response);
@@ -690,6 +778,22 @@ function getBusStatusAll() {
 	})
 	.catch(function (error) {
 		console.log(error);
+
+		let body = document.querySelector('body');
+		let block = document.createElement('div');
+		block.className = 'list';
+
+		let blockName = document.createElement('h1');
+		blockName.className = 'title';
+		blockName.innerText = 'Статусы автотранспорта';
+		block.appendChild(blockName);
+
+		let exception = document.createElement('p');
+		exception.className = 'exception';
+		exception.innerText = 'Эта станица вам недоступна.'
+		
+		block.appendChild(exception);
+		body.appendChild(block);
 	});
 }
 

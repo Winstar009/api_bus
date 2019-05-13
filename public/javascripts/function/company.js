@@ -4,7 +4,10 @@ function getCompany() {
 
 	axios({
 		method: 'POST',
-		url: '/company/getCompany/' + companyId
+		url: '/company/getCompany/' + companyId,
+		headers: {
+			'Authorization': localStorage.getItem('token')
+		}
 	})
 	.then(function (response) {
 		console.log(response);
@@ -80,7 +83,10 @@ function printCompany(data, companyId) {
 function getCompanyList() {
 	axios({
 		method: 'POST',
-		url: '/company/getCompanyList'
+		url: '/company/getCompanyList',
+		headers: {
+			'Authorization': localStorage.getItem('token')
+		}
 	})
 	.then(function (response) {
 		console.log(response);
@@ -134,7 +140,10 @@ function printCompanyList(data) {
 function getCompanyAll() {
 	axios({
 		method: 'POST',
-		url: '/company/getCompanyList'
+		url: '/company/getCompanyList',
+		headers: {
+			'Authorization': localStorage.getItem('token')
+		}
 	})
 	.then(function (response) {
 		console.log(response);
