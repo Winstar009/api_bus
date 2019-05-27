@@ -1,0 +1,163 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{6ac76573-a787-4d74-ba27-2d8825818d5a}</ProjectGuid>
+    <ProjectHome>.</ProjectHome>
+    <ProjectView>ShowAllFiles</ProjectView>
+    <StartupFile>./bin/www</StartupFile>
+    <WorkingDirectory>.</WorkingDirectory>
+    <OutputPath>.</OutputPath>
+    <ProjectTypeGuids>{3AF33F2E-1136-4D97-BBB7-1795711AC8B8};{349c5851-65df-11da-9384-00065b846f21};{9092AA53-FB77-4645-B42D-1CCCA6BD08BD}</ProjectTypeGuids>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">16.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+    <StartWebBrowser>True</StartWebBrowser>
+    <SaveNodeJsSettingsInProjectFile>True</SaveNodeJsSettingsInProjectFile>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)' == 'Debug'" />
+  <PropertyGroup Condition="'$(Configuration)' == 'Release'" />
+  <ItemGroup>
+    <Content Include="package-lock.json" />
+    <Content Include="package.json" />
+    <Content Include="README.md" />
+    <Content Include="app.js" />
+    <Content Include="bin\config_auth.js" />
+    <Content Include="bin\config_db.js" />
+    <Content Include="bin\www.js" />
+    <Content Include="controllers\authController.js" />
+    <Content Include="controllers\busController.js" />
+    <Content Include="controllers\companyController.js" />
+    <Content Include="controllers\flightController.js" />
+    <Content Include="controllers\personnelController.js" />
+    <Content Include="controllers\routeController.js" />
+    <Content Include="controllers\scheduleController.js" />
+    <Content Include="controllers\stopController.js" />
+    <Content Include="controllers\userController.js" />
+    <Content Include="models\authModel.js" />
+    <Content Include="models\busModel.js" />
+    <Content Include="models\companyModel.js" />
+    <Content Include="models\flightModel.js" />
+    <Content Include="models\personnelModel.js" />
+    <Content Include="models\routeModel.js" />
+    <Content Include="models\scheduleModel.js" />
+    <Content Include="models\stopModel.js" />
+    <Content Include="models\userModel.js" />
+    <Content Include="routes\auth.js" />
+    <Content Include="routes\bus.js" />
+    <Content Include="routes\company.js" />
+    <Content Include="routes\flight.js" />
+    <Content Include="routes\index.js" />
+    <Content Include="routes\personnel.js" />
+    <Content Include="routes\route.js" />
+    <Content Include="routes\schedule.js" />
+    <Content Include="routes\stop.js" />
+    <Content Include="routes\user.js" />
+    <Content Include="views\bus.pug" />
+    <Content Include="views\busAll.pug" />
+    <Content Include="views\busBrandAll.pug" />
+    <Content Include="views\busCompany.pug" />
+    <Content Include="views\busModelAll.pug" />
+    <Content Include="views\busStatusAll.pug" />
+    <Content Include="views\busTypeAll.pug" />
+    <Content Include="views\company.pug" />
+    <Content Include="views\companyAll.pug" />
+    <Content Include="views\error.pug" />
+    <Content Include="views\flightAll.pug" />
+    <Content Include="views\flightPersonnel.pug" />
+    <Content Include="views\index.pug" />
+    <Content Include="views\layout.pug" />
+    <Content Include="views\login.pug" />
+    <Content Include="views\personnel.pug" />
+    <Content Include="views\personnelAll.pug" />
+    <Content Include="views\personnelCompany.pug" />
+    <Content Include="views\positionAll.pug" />
+    <Content Include="views\route.pug" />
+    <Content Include="views\routeAll.pug" />
+    <Content Include="views\stopAll.pug" />
+    <Content Include="public\stylesheets\style.css" />
+    <Content Include="public\javascripts\function\bus.js" />
+    <Content Include="public\javascripts\function\company.js" />
+    <Content Include="public\javascripts\function\convertTime.js" />
+    <Content Include="public\javascripts\function\flight.js" />
+    <Content Include="public\javascripts\function\getSchedule.js" />
+    <Content Include="public\javascripts\function\getUserInfo.js" />
+    <Content Include="public\javascripts\function\personnel.js" />
+    <Content Include="public\javascripts\function\route.js" />
+    <Content Include="public\javascripts\function\stop.js" />
+    <Content Include="public\javascripts\init\bus.js" />
+    <Content Include="public\javascripts\init\busAll.js" />
+    <Content Include="public\javascripts\init\busBrandAll.js" />
+    <Content Include="public\javascripts\init\busCompany.js" />
+    <Content Include="public\javascripts\init\busModelAll.js" />
+    <Content Include="public\javascripts\init\busStatusAll.js" />
+    <Content Include="public\javascripts\init\busTypeAll.js" />
+    <Content Include="public\javascripts\init\company.js" />
+    <Content Include="public\javascripts\init\companyAll.js" />
+    <Content Include="public\javascripts\init\flightAll.js" />
+    <Content Include="public\javascripts\init\flightPersonnel.js" />
+    <Content Include="public\javascripts\init\head.js" />
+    <Content Include="public\javascripts\init\home.js" />
+    <Content Include="public\javascripts\init\login.js" />
+    <Content Include="public\javascripts\init\personnel.js" />
+    <Content Include="public\javascripts\init\personnelAll.js" />
+    <Content Include="public\javascripts\init\personnelCompany.js" />
+    <Content Include="public\javascripts\init\positionAll.js" />
+    <Content Include="public\javascripts\init\route.js" />
+    <Content Include="public\javascripts\init\routeAll.js" />
+    <Content Include="public\javascripts\init\stopAll.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="api_bus" />
+    <Folder Include="bin" />
+    <Folder Include="controllers" />
+    <Folder Include="models" />
+    <Folder Include="public" />
+    <Folder Include="public\javascripts" />
+    <Folder Include="public\javascripts\function" />
+    <Folder Include="public\javascripts\init" />
+    <Folder Include="public\stylesheets" />
+    <Folder Include="routes" />
+    <Folder Include="views" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.Common.targets" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <Import Project="$(VSToolsPath)\Node.js Tools\Microsoft.NodejsToolsV2.targets" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>0</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:48022/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>True</UseCustomServer>
+          <CustomServerUrl>http://localhost:1337</CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}" User="">
+        <WebProjectProperties>
+          <StartPageUrl>
+          </StartPageUrl>
+          <StartAction>CurrentPage</StartAction>
+          <AspNetDebugging>True</AspNetDebugging>
+          <SilverlightDebugging>False</SilverlightDebugging>
+          <NativeDebugging>False</NativeDebugging>
+          <SQLDebugging>False</SQLDebugging>
+          <ExternalProgram>
+          </ExternalProgram>
+          <StartExternalURL>
+          </StartExternalURL>
+          <StartCmdLineArguments>
+          </StartCmdLineArguments>
+          <StartWorkingDirectory>
+          </StartWorkingDirectory>
+          <EnableENC>False</EnableENC>
+          <AlwaysStartWebServerOnDebug>False</AlwaysStartWebServerOnDebug>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>
