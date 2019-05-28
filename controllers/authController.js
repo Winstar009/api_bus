@@ -19,29 +19,37 @@ exports.findUserToken = function(jwt_payload) {
 	var id = jwt_payload.id;
 	var login = jwt_payload.login;
 	var password = jwt_payload.password;
-	var authDate = jwt_payload.iat;
+    var authDate = jwt_payload.iat;
+    var permission = jwt_payload.permission;
 
-	return auth.findUserToken(id, login, password).then(resultFindUser => {
-		resultFindUser = resultFindUser.recordset;
+    return auth.getPermission(id).then(resultPermission => {
+        resultPermission = resultPermission.recordset[0];
+        if (resultPermission.permission == permission) {
+            return auth.findUserToken(id, login, password).then(resultFindUser => {
+                resultFindUser = resultFindUser.recordset;
 
-		if(resultFindUser.length == 1) {
-			if(resultFindUser[0].authDate != authDate){
-				auth.updateAuthDate(id, authDate).then(resultUpdateIat => {
-					if(resultUpdateIat){
-						return true;
-					}
-				});
-			}
-			else {
-				if(resultFindUser[0].authDate == authDate){
-					return true;
-				}
-				else {
-					return false;
-				}
-			}
-		}
-	});
+                if (resultFindUser.length == 1) {
+                    if (resultFindUser[0].authDate != authDate) {
+                        auth.updateAuthDate(id, authDate).then(resultUpdateIat => {
+                            if (resultUpdateIat) {
+                                return true;
+                            }
+                        });
+                    }
+                    else {
+                        if (resultFindUser[0].authDate == authDate) {
+                            return true;
+                        }
+                        else {
+                            return false;
+                        }
+                    }
+                }
+            });
+        } else {
+            return false;
+        }
+    })
 }
 
 exports.userAuth = function(req, res, next) {

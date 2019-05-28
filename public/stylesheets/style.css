@@ -104,3 +104,8 @@ th {
 	padding: 17px;
 	background-color: #efefc4;
 }
+
+th a {
+    float: right;
+    padding: 0 5px;
+}

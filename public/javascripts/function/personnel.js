@@ -421,7 +421,7 @@ function printPersonnelList(data) {
 	body.appendChild(block);
 }
 
-/*====================================================================================*/
+/*==================================================================================== Вывести все должности*/
 
 function getPositionAll() {
 	axios({
@@ -433,9 +433,11 @@ function getPositionAll() {
 	})
 	.then(function (response) {
 		console.log(response);
-		console.log(JSON.parse(response.data));
+        console.log(JSON.parse(response.data));
 
-		printPositionList(JSON.parse(response.data).data);
+        let permission = JSON.parse(localStorage.getItem('info')).permission;
+
+        printPositionList(JSON.parse(response.data).data, permission);
 	})
 	.catch(function (error) {
 		console.log(error);
@@ -458,7 +460,7 @@ function getPositionAll() {
 	});
 }
 
-function printPositionList(data) {
+function printPositionList(data, permission) {
 	let body = document.querySelector('body');
 	let block = document.createElement('div');
 	block.className = 'list';
@@ -466,7 +468,7 @@ function printPositionList(data) {
 	let blockName = document.createElement('h1');
 	blockName.className = 'title';
 	blockName.innerText = 'Должности';
-	block.appendChild(blockName);
+    block.appendChild(blockName);
 
 	let table = document.createElement('table');
 	table.className = 'table';
@@ -475,7 +477,7 @@ function printPositionList(data) {
 	let headLine = document.createElement('tr');
 
 	let column_position = document.createElement('th');
-	column_position.innerText = 'Должность';
+    column_position.innerText = 'Должность';
 
 	headLine.appendChild(column_position);
 	headTable.appendChild(headLine);
@@ -486,11 +488,160 @@ function printPositionList(data) {
 	data.forEach(elem => {
 		let bodyLine = document.createElement('tr');
 		let c_position = document.createElement('th');
-		c_position.innerText = elem.position;
+        c_position.innerText = elem.position;
+
+        //Удалить
+        if (permission == 0) {
+            let btnDelete = document.createElement('a');
+            btnDelete.innerText = 'Удалить';
+            btnDelete.setAttribute('id', elem.positionId);
+            c_position.appendChild(btnDelete);
+
+            btnDelete.onclick = function () {
+                axios({
+                    method: 'POST',
+                    url: '/personnel/delPosition/' + this.getAttribute('id'),
+                    headers: {
+                        'Authorization': localStorage.getItem('token')
+                    }
+                })
+                .then(function (response) {
+                    console.log(response);
+                    console.log(JSON.parse(response.data));
+
+                    window.location.reload();
+                })
+            }
+
+            let btnUpdate = document.createElement('a');
+            btnUpdate.innerText = 'Изменить';
+            btnUpdate.setAttribute('id', elem.positionId);
+            btnUpdate.setAttribute('value', elem.position);
+            c_position.appendChild(btnUpdate);
+
+            btnUpdate.onclick = function () {
+                let id = this.getAttribute('id');
+                let val = this.getAttribute('value');
+
+                let place = this.parentNode.parentNode;
+                while (place.firstChild) {
+                    place.removeChild(place.firstChild);
+                }
+
+                let th = document.createElement('th');
+
+                let form = document.createElement('form');
+                form.action = '/personnel/updPosition/';
+                form.enctype = 'multipart/form-data';
+                form.method = 'post';
+
+                let f_position = document.createElement('input');
+                f_position.name = 'namePosition';
+                f_position.id = 'namePosition';
+                f_position.type = 'text';
+                f_position.value = val;
+
+                let f_id= document.createElement('input');
+                f_id.name = 'idPosition';
+                f_id.id = 'idPosition';
+                f_id.type = 'hidden';
+                f_id.value = id;
+
+                let send = document.createElement('a');
+                send.innerText = 'Применить';
+                send.onclick = function () {
+                    let formData = new FormData(this.parentNode);
+
+                    axios({
+                        method: 'POST',
+                        url: '/personnel/updPosition/',
+                        headers: {
+                            'Authorization': localStorage.getItem('token')
+                        },
+                        data: formData
+                    })
+                    .then(function (response) {
+                        console.log(response);
+                        console.log(JSON.parse(response.data));
+
+                        window.location.reload();
+                    })
+                }
+
+                form.appendChild(f_id);
+                form.appendChild(f_position);
+                form.appendChild(send);
+
+                th.appendChild(form);
+                place.appendChild(th);
+            }
+        }
+        //Удалить
 
 		bodyLine.appendChild(c_position);
 		bodyTable.appendChild(bodyLine);
-	})
+    })
+
+    //Добавить должность
+    if (permission == 0) {
+        let bodyLine = document.createElement('tr');
+        let c_position = document.createElement('th');
+        bodyLine.id = 'add';
+
+        let btnInsert = document.createElement('a');
+        btnInsert.innerText = 'Добавить';
+        c_position.appendChild(btnInsert);
+
+        btnInsert.onclick = function () {
+            let place = document.querySelector('#add');
+            while (place.firstChild) {
+                place.removeChild(place.firstChild);
+            }
+
+            let th = document.createElement('th');
+
+            let form = document.createElement('form');
+            form.action = '/personnel/addPosition/';
+            form.enctype = 'multipart/form-data';
+            form.method = 'post';
+
+            let f_position = document.createElement('input');
+            f_position.name = 'namePosition';
+            f_position.id = 'namePosition';
+            f_position.type = 'text';
+
+            let send = document.createElement('a');
+            send.innerText = 'Применить';
+            send.onclick = function () {
+                let formData = new FormData(this.parentNode);
+
+                axios({
+                    method: 'POST',
+                    url: '/personnel/addPosition/',
+                    headers: {
+                        'Authorization': localStorage.getItem('token')
+                    },
+                    data: formData
+                })
+                .then(function (response) {
+                    console.log(response);
+                    console.log(JSON.parse(response.data));
+
+                    window.location.reload();
+                })
+            }
+
+            form.appendChild(f_position);
+            form.appendChild(send);
+
+            th.appendChild(form);
+            place.appendChild(th);
+        }
+
+        bodyLine.appendChild(c_position);
+        bodyTable.appendChild(bodyLine);
+    }
+    //Добавить должность
 
 	table.appendChild(bodyTable);
 	block.appendChild(table);
